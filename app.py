@@ -9,7 +9,6 @@ st.image(image, width = 600)
 st.header("Pronóstico de goles")
 st.text("A Streamlit Machine Learning App \nby Sergio Toscano Díaz - Máster FP IA y BD")
 
-# Add a text input
 col1, col2 = st.columns(2)
 with col1:
     shots = st.number_input("Tiros por partido:", min_value=7.0, max_value=20.0)
@@ -19,8 +18,6 @@ with col2:
     passes = st.number_input("Porcentaje de pases:", min_value=50.00, max_value=100.0)
 rating = st.number_input("Calificación general del equipo:", min_value=6.0, max_value=7.0)
   
-
-# Display the entered name
 if st.button("Submit"):
     football_model = joblib.load("football_model.pkl")    
     X = pd.DataFrame([[shots, possession, passes, aerials, rating]],
